@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Restaurant.Domain
 {
-    public class RestaurantX
+    class RestaurantX
     {
         public string Name { get; set; }
-        private Queue<Order> orderQueue { get; } = new Queue<Order>();
+        public Queue<Order> orderQueue { get; } = new Queue<Order>();
 
         public RestaurantX(string name)
         {

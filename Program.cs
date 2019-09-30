@@ -37,6 +37,7 @@ namespace Restaurant
                 switch (keyPressed.Key)
                 {
                     case ConsoleKey.D1: //add order
+                    case ConsoleKey.NumPad1:
 
                         Console.SetCursorPosition(3, 1);
                         Console.WriteLine("Dish: ");
@@ -48,9 +49,9 @@ namespace Restaurant
                         Console.SetCursorPosition("Table: ".Length, 1);
                         table = Console.ReadLine();
 
-                        Order order = new Order(dish, table);
+                        Order neworder = new Order(dish, table);
 
-                        restaurant.RegisterOrder(order);
+                        restaurant.RegisterOrder(neworder);
 
                         Console.Clear();
 
@@ -60,6 +61,20 @@ namespace Restaurant
                         break;
 
                     case ConsoleKey.D2: //list order
+                    case ConsoleKey.NumPad2:
+
+                        Console.WriteLine("Table     Dish                      Registered");
+                        Console.WriteLine("________________________________________________________");
+
+                        foreach (Order order in restaurant.orderQueue)
+                        {
+                            Console.WriteLine($"{order.Table}     {order.Dish}                      {order.RegisteredAt}");
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine(">Press key to continue<");
+
+                        Console.ReadKey();
 
                         break;
 
